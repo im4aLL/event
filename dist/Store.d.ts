@@ -13,7 +13,7 @@ export class Store {
     static deleteItems(keyArray: any): void;
     static flush(): void;
     static registerStorage(storageClass: any): void;
-    static saveToStorage(): void;
+    static saveToStorage(updatedKeyName: any): void;
     static getInitialValue(): void;
     static registerEvent(EventClass: any): void;
     static register(settings: any): void;

@@ -29,7 +29,7 @@ var Store = /** @class */ (function () {
         var _a;
         var data = __assign(__assign({}, Store.all()), (_a = {}, _a[key] = value, _a));
         Store.data = __assign({}, data);
-        Store.saveToStorage();
+        Store.saveToStorage(key);
     };
     Store.getItem = function (key) {
         if (Store.data.hasOwnProperty(key)) {
@@ -61,7 +61,7 @@ var Store = /** @class */ (function () {
     Store.deleteItem = function (key) {
         if (Store.hasItem(key)) {
             delete Store.data[key];
-            Store.saveToStorage();
+            Store.saveToStorage(key);
         }
     };
     Store.deleteItems = function (keyArray) {
@@ -80,12 +80,12 @@ var Store = /** @class */ (function () {
         Store.storageClass = storageClass;
         Store.getInitialValue();
     };
-    Store.saveToStorage = function () {
+    Store.saveToStorage = function (updatedKeyName) {
         if (Store.storageClass) {
             Store.storageClass.setItem(Store.storeKey, Store.all());
         }
         if (Store.eventClass) {
-            Store.eventClass.dispatch(Store.storeKey, Store.all());
+            Store.eventClass.dispatch(Store.storeKey, Store.all(), updatedKeyName);
         }
     };
     Store.getInitialValue = function () {

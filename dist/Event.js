@@ -23,12 +23,18 @@ var Event = /** @class */ (function () {
             Event.listen(name, callback);
         });
     };
-    Event.dispatch = function (name, arg) {
+    Event.dispatch = function (name, arg, updatedKeyName) {
+        if (updatedKeyName === void 0) { updatedKeyName = null; }
         if (Event.events[name]) {
             Event.events[name].forEach(function (callback) {
                 if (arg) {
                     if (Event.defaultEventName) {
-                        callback.call(Event, arg);
+                        if (updatedKeyName) {
+                            callback.call(Event, arg, updatedKeyName);
+                        }
+                        else {
+                            callback.call(Event, arg);
+                        }
                     }
                     else {
                         callback.call(Event, name, arg);
