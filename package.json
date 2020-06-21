@@ -1,0 +1,21 @@
+{
+  "name": "event",
+  "version": "1.0.0",
+  "description": "Simple way to communicate one component to another component",
+  "main": "dist/index.js",
+  "types": "dist",
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/im4aLL/event.git"
+  },
+  "author": "Habib Hadi <me@habibhadi.com> (http://habibhadi.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/im4aLL/event/issues"
+  },
+  "homepage": "https://github.com/im4aLL/event#readme",
+  "dependencies": {}
+}

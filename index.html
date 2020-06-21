@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="module">
+        import { Event, Storage, Store } from './dist/index.js';
+
+        Event.listeners(['login', 'logout'], (eventName, value) => {
+            console.log(`${eventName} event triggered!`);
+            console.log(value);
+        });
+
+        Event.listen('purchase', (name, orderNumber) => {
+            console.log(`${orderNumber} has been purchased!`);
+        });
+
+        Event.dispatch('login', 'hadi');
+        Event.dispatch('logout', {
+            c: 3
+        });
+
+        setTimeout(() => {
+            Event.dispatch('purchase', 'ABC-123');
+        }, 5000);
+
+        // Event.removeListener('purchase');
+
+        // console.log(Event.events);
+
+        // Storage.method = window.sessionStorage;
+        // Store.register({ storage: Storage, event: Event });
+
+        // Store.onChange(data => {
+        //     console.log(data);
+        // });
+
+        // Store.setItem('aa', 1);
+
+        // setTimeout(() => {
+        //     Store.setItem('xx', 1);
+        // }, 2000);
+
+        // Store.setItem('a', 1);
+        // // console.log(Store.getItem('a'));
+
+        // Store.setItems([
+        //     { key: 'b', value: 2 },
+        //     { key: 'c', value: 3 }
+        // ]);
+
+        // // console.log(Store.getItems(['b', 'c']));
+
+        // Store.setItem('x', 111);
+        // Store.setItem('y', 222);
+        // console.log(Store.all());
+
+        // Store.deleteItems(['x', 'y']);
+        // console.log(Store.all());
+
+        // Store.flush();
+        // console.log(Store.all());
+
+        // Storage.setItem('a', {'a': 1, 'b': 2});
+        // console.log(Storage.getItem('a'));
+
+        // Storage.setItem('b', 3);
+        // console.log(Storage.getItem('b'));
+
+        // Storage.flush();
+
+
+    </script>
+
+</body>
+</html>
