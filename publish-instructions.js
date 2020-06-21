@@ -1,0 +1,1 @@
+console.log(`add to Store declaration - static onChange(callback: any): void;`);

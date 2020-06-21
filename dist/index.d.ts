@@ -37,4 +37,5 @@ export class Store {
     static getInitialValue(): void;
     static registerEvent(EventClass: any): void;
     static register(settings: any): void;
+	static onChange(callback: any): void;
 }

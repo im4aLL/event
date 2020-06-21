@@ -1,11 +1,11 @@
 {
   "name": "@im4all/store",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple way to communicate one component to another component",
   "main": "dist/index.js",
   "types": "dist",
   "scripts": {
-    "build": "rollup src/index.js --file prebuild/index.js && tsc -p ."
+    "build": "rollup src/index.js --file prebuild/index.js && tsc -p . && node publish-instructions.js"
   },
   "repository": {
     "type": "git",
