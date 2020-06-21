@@ -1,6 +1,6 @@
 {
   "name": "@im4all/store",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple way to communicate one component to another component",
   "main": "dist/index.js",
   "types": "dist",
