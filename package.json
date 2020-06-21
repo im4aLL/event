@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist",
   "scripts": {
-    "build": "tsc -p ."
+    "build": "rollup src/index.js --file prebuild/index.js && tsc -p ."
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,6 @@
     "url": "https://github.com/im4aLL/event/issues"
   },
   "homepage": "https://github.com/im4aLL/event#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {}
 }
