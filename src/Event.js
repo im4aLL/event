@@ -25,12 +25,16 @@ export class Event {
         });
     }
 
-    static dispatch(name, arg) {
+    static dispatch(name, arg, updatedKeyName = null) {
         if (Event.events[name]) {
             Event.events[name].forEach(callback => {
                 if (arg) {
                     if (Event.defaultEventName) {
-                        callback.call(Event, arg);
+                        if (updatedKeyName) {
+                            callback.call(Event, arg, updatedKeyName);
+                        } else {
+                            callback.call(Event, arg);
+                        }
                     } else {
                         callback.call(Event, name, arg);
                     }

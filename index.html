@@ -10,42 +10,44 @@
 <body>
 
     <script type="module">
-        import { Event, Storage, Store } from './dist/index.js';
+        import { Event } from './src/Event.js';
+        import { Storage } from './src/Storage.js';
+        import { Store } from './src/Store.js';
 
-        Event.listeners(['login', 'logout'], (eventName, value) => {
-            console.log(`${eventName} event triggered!`);
-            console.log(value);
-        });
+        // Event.listeners(['login', 'logout'], (eventName, value) => {
+        //     console.log(`${eventName} event triggered!`);
+        //     console.log(value);
+        // });
 
-        Event.listen('purchase', (name, orderNumber) => {
-            console.log(`${orderNumber} has been purchased!`);
-        });
+        // Event.listen('purchase', (name, orderNumber) => {
+        //     console.log(`${orderNumber} has been purchased!`);
+        // });
 
-        Event.dispatch('login', 'hadi');
-        Event.dispatch('logout', {
-            c: 3
-        });
+        // Event.dispatch('login', 'hadi');
+        // Event.dispatch('logout', {
+        //     c: 3
+        // });
 
-        setTimeout(() => {
-            Event.dispatch('purchase', 'ABC-123');
-        }, 5000);
+        // setTimeout(() => {
+        //     Event.dispatch('purchase', 'ABC-123');
+        // }, 5000);
 
         // Event.removeListener('purchase');
 
         // console.log(Event.events);
 
         // Storage.method = window.sessionStorage;
-        // Store.register({ storage: Storage, event: Event });
+        Store.register({ storage: Storage, event: Event });
 
-        // Store.onChange(data => {
-        //     console.log(data);
-        // });
+        Store.onChange((data, updatedItem) => {
+            console.log(data, updatedItem);
+        });
 
-        // Store.setItem('aa', 1);
+        Store.setItem('aa', 1);
 
-        // setTimeout(() => {
-        //     Store.setItem('xx', 1);
-        // }, 2000);
+        setTimeout(() => {
+            Store.setItem('xx', 1);
+        }, 2000);
 
         // Store.setItem('a', 1);
         // // console.log(Store.getItem('a'));

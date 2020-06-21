@@ -14,7 +14,7 @@ export class Store {
 
         Store.data = {...data};
 
-        Store.saveToStorage();
+        Store.saveToStorage(key);
     }
 
     static getItem(key) {
@@ -57,7 +57,7 @@ export class Store {
         if (Store.hasItem(key)) {
             delete Store.data[key];
 
-            Store.saveToStorage();
+            Store.saveToStorage(key);
         }
     }
 
@@ -83,13 +83,13 @@ export class Store {
         Store.getInitialValue();
     }
 
-    static saveToStorage() {
+    static saveToStorage(updatedKeyName) {
         if (Store.storageClass) {
             Store.storageClass.setItem(Store.storeKey, Store.all());
         }
 
         if (Store.eventClass) {
-            Store.eventClass.dispatch(Store.storeKey, Store.all());
+            Store.eventClass.dispatch(Store.storeKey, Store.all(), updatedKeyName);
         }
     }
 
