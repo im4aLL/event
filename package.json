@@ -1,5 +1,5 @@
 {
-  "name": "event",
+  "name": "@im4all/store",
   "version": "1.0.0",
   "description": "Simple way to communicate one component to another component",
   "main": "dist/index.js",
